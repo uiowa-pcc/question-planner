@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Plan Questions for a Career Experience</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to activity</a>
+
+  <div class="shell">
+    <div class="topmark" aria-hidden="true"></div>
+    <header class="intro">
+      <h1>Plan Questions for a Career Experience</h1>
+      <p class="lede">Build a short list of questions that helps you learn what you actually want to know — whether you are having an informational interview, shadowing someone, visiting a workplace, or talking with a professional.</p>
+      <p class="micro">You do not need to ask every question. A good conversation usually starts with a few priorities and leaves room to follow what you learn.</p>
+    </header>
+
+    <div class="progress-wrap" aria-label="Activity progress">
+      <div class="progress-row">
+        <span id="progressLabel">Step 1 of 5</span>
+        <span id="progressName">Your experience</span>
+      </div>
+      <div class="track"><div class="bar" id="progressBar"></div></div>
+    </div>
+
+    <main id="main">
+      <section class="step active" data-step="1">
+        <div class="panel">
+          <div class="stepbadge"><span>1</span> Your experience</div>
+          <h2>What are you getting ready for?</h2>
+          <p>Choose the closest fit. You can still customize your questions later.</p>
+
+          <div class="cards choice-cards" id="experienceChoices">
+            <button class="select-card" type="button" data-experience="info">
+              <strong>Informational interview</strong>
+              <span>A focused conversation to learn from someone’s experience</span>
+            </button>
+            <button class="select-card" type="button" data-experience="shadow">
+              <strong>Job shadow or site visit</strong>
+              <span>Observe the work and ask questions before, during, or after</span>
+            </button>
+            <button class="select-card" type="button" data-experience="professional">
+              <strong>Conversation with a professional or alum</strong>
+              <span>A less formal career conversation or networking connection</span>
+            </button>
+            <button class="select-card" type="button" data-experience="internship">
+              <strong>Learn about an internship</strong>
+              <span>Talk with a current or former intern, supervisor, or employee</span>
+            </button>
+            <button class="select-card" type="button" data-experience="other">
+              <strong>Another career experience</strong>
+              <span>Build questions for a different situation</span>
+            </button>
+          </div>
+
+          <div class="field-group hidden" id="otherExperienceWrap">
+            <label for="otherExperience"><strong>What kind of experience?</strong></label>
+            <input id="otherExperience" type="text" placeholder="Example: career trek, mentoring meeting, employer visit" />
+          </div>
+
+          <div class="nav right">
+            <button class="btn primary" id="toStep2" type="button" disabled>Continue</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="step" data-step="2">
+        <div class="panel">
+          <div class="stepbadge"><span>2</span> What you want to learn</div>
+          <h2>What would make this experience useful?</h2>
+          <p>Choose up to <strong>3 goals</strong>. Your questions will be built around these.</p>
+
+          <div class="cards goal-grid" id="goalChoices"></div>
+          <div class="warn hidden" id="goalWarn">Choose at least one goal to continue.</div>
+
+          <div class="field-group">
+            <label for="customGoal"><strong>Something more specific?</strong> <span class="optional">Optional</span></label>
+            <textarea id="customGoal" placeholder="Example: I want to understand how much of the job is direct client work versus documentation."></textarea>
+          </div>
+
+          <div class="nav">
+            <button class="btn" type="button" data-back="1">Back</button>
+            <button class="btn primary" id="toStep3" type="button">Continue</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="step" data-step="3">
+        <div class="panel">
+          <div class="stepbadge"><span>3</span> Add context</div>
+          <h2>Who are you talking with?</h2>
+          <p>A little context helps turn general questions into questions that fit this person and experience.</p>
+
+          <div class="two-col">
+            <div class="field-group">
+              <label for="personRole"><strong>Their role or connection</strong> <span class="optional">Optional</span></label>
+              <input id="personRole" type="text" placeholder="Example: school counselor, former intern, HR specialist" />
+            </div>
+            <div class="field-group">
+              <label for="organization"><strong>Organization</strong> <span class="optional">Optional</span></label>
+              <input id="organization" type="text" placeholder="Example: University of Iowa Hospitals & Clinics" />
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="interest"><strong>What are you especially curious about?</strong> <span class="optional">Optional</span></label>
+            <textarea id="interest" placeholder="Example: I am interested in pediatric work, but I am unsure how emotionally demanding the day-to-day work feels."></textarea>
+            <div class="hint">Be specific. This is where the tool can turn a broad topic into a more useful question.</div>
+          </div>
+
+          <div class="field-group">
+            <label for="knownInfo"><strong>What do you already know?</strong> <span class="optional">Optional</span></label>
+            <textarea id="knownInfo" placeholder="Example: I already know the role requires a master's degree, so I do not need to ask about basic education requirements."></textarea>
+            <div class="hint">This helps avoid questions you could answer from a website or basic research.</div>
+          </div>
+
+          <div class="nav">
+            <button class="btn" type="button" data-back="2">Back</button>
+            <button class="btn primary" id="toStep4" type="button">Continue</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="step" data-step="4">
+        <div class="panel">
+          <div class="stepbadge"><span>4</span> Your priorities</div>
+          <h2>What do you want to pay attention to?</h2>
+          <p id="valuesIntro">Choose any values or work factors you want to learn more about.</p>
+
+          <div class="saved-values hidden" id="savedValuesBox">
+            <div>
+              <div class="saved-title">Your saved Values Profile was found</div>
+              <p class="micro" id="savedValuesSummary"></p>
+            </div>
+            <button class="btn small" id="clearImportedValues" type="button">Don't use saved values</button>
+          </div>
+
+          <div id="valueChoices" class="cards value-grid"></div>
+
+          <details class="add-own">
+            <summary>Add something else</summary>
+            <div class="field-group compact">
+              <label for="customValue"><strong>Another priority or work factor</strong></label>
+              <input id="customValue" type="text" placeholder="Example: opportunities to work with children" />
+              <button class="btn small" id="addCustomValue" type="button">Add</button>
+            </div>
+          </details>
+
+          <div class="nav">
+            <button class="btn" type="button" data-back="3">Back</button>
+            <button class="btn primary" id="toStep5" type="button">Build my questions</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="step" data-step="5">
+        <div class="panel">
+          <div class="stepbadge"><span>5</span> Your question plan</div>
+          <h2>Start with these — then follow the conversation.</h2>
+          <p id="resultIntro">Choose the questions that feel most useful. You can edit any question before copying your plan.</p>
+
+          <div class="callout tip-callout">
+            <strong>For a 20–30 minute conversation:</strong> aim for about 6–8 questions, with a few backups. You may ask fewer if the conversation naturally goes deeper.
+          </div>
+
+          <div class="question-sections" id="questionSections"></div>
+
+          <div class="panel-lite">
+            <h3>Add your own question</h3>
+            <div class="inline-add">
+              <input id="ownQuestion" type="text" placeholder="Type a question you want to include" />
+              <button class="btn small" id="addOwnQuestion" type="button">Add question</button>
+            </div>
+          </div>
+
+          <div class="toolbar">
+            <button class="btn primary" id="copySelected" type="button">Copy selected questions</button>
+            <button class="btn" id="copyAll" type="button">Copy all questions</button>
+            <button class="btn" id="editPlan" type="button">Edit my plan</button>
+            <button class="btn" id="restart" type="button">Start over</button>
+          </div>
+          <div id="copyStatus" class="status" aria-live="polite"></div>
+        </div>
+
+        <div class="panel followup-panel">
+          <h2>Before you go</h2>
+          <div class="reminder-grid" id="reminders"></div>
+          <p class="source-note">Question ideas are adapted from the University of Iowa Pomerantz Career Center’s informational interview guidance and expanded to fit different career experiences.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
